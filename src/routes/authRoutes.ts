@@ -10,7 +10,7 @@ router.post('/register',
     body('name').notEmpty().withMessage('Name is required'),
     body('email').isEmail().withMessage('Invalid email'),
     body('password').isLength({ min: 8 }).withMessage('Password must be at least 8 characters long'),
-    body('confirmPassword').custom((value, { req }) => {
+    body('confirm_password').custom((value, { req }) => {
         if (value !== req.body.password) {
             throw new Error('Passwords do not match')
         }
